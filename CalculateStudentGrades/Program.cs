@@ -5,32 +5,42 @@ class Program
 {
     static void Main(string[] args)
     {
-        StudentGrades();
+        PrintStudentGrades();
     }
 
-    static void StudentGrades()
+    static void PrintStudentGrades()
     {
         List<String> studentNames = new List<String>();
         List<String> studentGrades = new List<String>();
         
         do
         {
-            Console.WriteLine("Please enter a Student's name.");
+            Console.WriteLine("Please enter a new Student's name.");
             string studentName = Console.ReadLine();
 
-            studentNames.Add(studentName);
-
-            if (!string.IsNullOrEmpty(studentName))
-            {
-                Console.WriteLine($"{studentName} was added.");
-            }
-            else
+            if (string.IsNullOrEmpty(studentName))
             {
                 break;
             }
+            studentNames.Add(studentName);
+
+            Console.WriteLine($"Please enter a grade for {studentName}");
+            string studentGrade = Console.ReadLine();
+            studentGrades.Add(studentGrade);
+
         }
         while (true);
 
-        Console.WriteLine($"{studentNames}'s grade is ");
+        Console.WriteLine("Grades:");
+
+        for (int i = 0; i < studentNames.Count; i++)
+        {
+            Console.WriteLine($"Student Name:{studentNames[i]}");
+            Console.WriteLine($"Student Grade:{studentGrades[i]}");
+            // Output
+            // Grades:
+            // Student Name: {Name}
+            // Student Grade: {Grade}
+        }
     }
 }
