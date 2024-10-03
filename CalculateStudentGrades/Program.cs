@@ -12,10 +12,25 @@ class Program
     {
         List<String> studentNames = new List<String>();
         List<String> studentGrades = new List<String>();
-
-        while (true)
+        
+        do
         {
-            Console.WriteLine("Please enter a Student's name");
+            Console.WriteLine("Please enter a Student's name.");
+            string studentName = Console.ReadLine();
+
+            studentNames.Add(studentName);
+
+            if (!string.IsNullOrEmpty(studentName))
+            {
+                Console.WriteLine($"{studentName} was added.");
+            }
+            else
+            {
+                break;
+            }
         }
+        while (true);
+
+        Console.WriteLine($"{studentNames}'s grade is ");
     }
 }
